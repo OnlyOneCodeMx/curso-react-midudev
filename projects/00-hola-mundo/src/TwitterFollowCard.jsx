@@ -22,14 +22,13 @@ export function TwitterFollowCard({ formatUserName, userName, children }) {
         />
         <div className="tw-followCard-info">
           <strong>{children}</strong>
-          <span className=".tw-followCard-infoUserName">
-            {formatUserName(userName)}
-          </span>
+          <span className=".tw-followCard-infoUserName">@{userName}</span>
         </div>
       </header>
       <aside>
         <button onClick={handleClick} className={buttonClassName}>
-          {text}
+          <span className="tw-followCard-text">{text}</span>
+          <span className="tw-followCard-stopFollow">Dejar de seguir</span>
         </button>
       </aside>
     </article>
