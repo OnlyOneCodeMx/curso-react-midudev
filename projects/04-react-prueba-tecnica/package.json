@@ -1,5 +1,5 @@
 {
-  "name": "04-prueba-tecnica",
+  "name": "04-react-prueba-tecnica",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,11 +13,13 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "4.1.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@vitejs/plugin-react": "^4.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "extends":"./node_modules/standard/eslintrc.json"
   }
+
+
 }
