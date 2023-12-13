@@ -7,7 +7,13 @@ import { checkWinnerFrom, checkEndGame } from './logic/board.js';
 import { WinnerModal } from './components/WinnerModal.jsx';
 import { saveGameToStorage, resetGameStorage } from './logic/storage/index.js';
 
+/**
+ * Componente principal de la aplicación Tic Tac Toe.
+ * 
+ * @returns {JSX.Element} Elemento JSX que representa la aplicación.
+ */
 function App() {
+
   const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem('board');
     return boardFromStorage
@@ -20,7 +26,6 @@ function App() {
     return turnFromStorage ?? TURNS.X;
   });
 
-  // null = no hay ganador, false = empate
   const [winner, setWinner] = useState(null);
 
   const resetGame = () => {
@@ -32,20 +37,19 @@ function App() {
   };
 
   const updateBoard = (index) => {
-    // no actualizamos esta posición
-    // si ya tiene algo o si hay un ganador
+    
     if (board[index] || winner) return;
-    // actualizamos el tablero
+    
     const newBoard = [...board];
     newBoard[index] = turn;
     setBoard(newBoard);
-    //cambiar el turno
+    
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
     setTurn(newTurn);
-    // guardar aqui partida
+    
     saveGameToStorage({ board: newBoard, turn: newTurn });
 
-    // revisar si hay un ganador
+    
     const newWinner = checkWinnerFrom(newBoard);
     if (newWinner) {
       confetti();
