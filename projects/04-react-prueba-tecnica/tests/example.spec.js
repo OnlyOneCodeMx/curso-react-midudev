@@ -21,3 +21,5 @@ test('app shows random fact and image', async ({ page }) => {
   await expect(textContent?.length).toBeGreaterThan(0);
   await expect(imageSrc?.startsWith(CAT_PREFIX_IMAGE_URL)).toBeTruthy();
 });
+
+// Generar test que verifique que el boton de refresh actualiza el texto y la imagen
